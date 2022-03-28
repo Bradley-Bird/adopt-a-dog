@@ -13,6 +13,9 @@ function App() {
           <Route path="/dogs/new">
             <New />
           </Route>
+          <Route path="/dogs">
+            <Home />
+          </Route>
           <Route path="/">
             <Home />
           </Route>
