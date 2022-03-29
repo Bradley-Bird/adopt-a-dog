@@ -27,8 +27,11 @@ function Edit() {
     await updateDog(params.id, dog);
     history.push('dogs/:id');
   };
-  loading && <p>Loading...</p>;
-  error && <p>{error}</p>;
+  if (loading) {
+    return <p>Loading...</p>;
+  } else if (error) {
+    return <p>{error}</p>;
+  }
   return (
     <div>
       <DogForm {...{ dog, setDog, handleUpdate }} edit={true} />

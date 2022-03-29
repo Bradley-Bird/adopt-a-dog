@@ -28,8 +28,11 @@ function Details() {
       setError('something went wrong, please try again.');
     }
   };
-  loading && <p>Loading...</p>;
-  error && <p>{error}</p>;
+  if (loading) {
+    return <p>Loading...</p>;
+  } else if (error) {
+    return <p>{error}</p>;
+  }
   return (
     <div>
       <DogDetail {...{ dog }} />
