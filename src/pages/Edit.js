@@ -7,10 +7,17 @@ function Edit() {
   const history = useHistory();
   const params = useParams();
   const [dog, setDog] = useState({ name: '', bio: '', age: '', breed: '', image: '' });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getDogById(params.id);
-      setDog(data);
+      try {
+        const data = await getDogById(params.id);
+        setDog(data);
+        setLoading(false);
+      } catch (e) {
+        setError(e.message);
+      }
     };
     fetchData();
   }, [params]);
@@ -20,7 +27,8 @@ function Edit() {
     await updateDog(params.id, dog);
     history.push('dogs/:id');
   };
-
+  loading && <p>Loading...</p>;
+  error && <p>{error}</p>;
   return (
     <div>
       <DogForm {...{ dog, setDog, handleUpdate }} edit={true} />
