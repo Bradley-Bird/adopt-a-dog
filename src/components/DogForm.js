@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 function DogForm({
   dog,
@@ -15,7 +16,7 @@ function DogForm({
 
   return (
     <div>
-      <form>
+      <StyledFormContainer>
         <input
           type="text"
           placeholder="Name"
@@ -28,7 +29,7 @@ function DogForm({
           value={age}
           onChange={(e) => updateDog('age', e.target.value)}
         />
-        <input
+        <BioInput
           type="text"
           placeholder="Bio"
           value={bio}
@@ -47,9 +48,17 @@ function DogForm({
           onChange={(e) => updateDog('image', e.target.value)}
         />
         <button onClick={edit ? handleUpdate : createNewDog}>{edit ? 'Update' : 'Save'}</button>
-      </form>
+      </StyledFormContainer>
     </div>
   );
 }
-
+const BioInput = styled.textarea`
+  height: 200px;
+`;
+const StyledFormContainer = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 export default DogForm;

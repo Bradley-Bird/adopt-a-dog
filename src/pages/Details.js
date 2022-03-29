@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import DogDetail from '../components/DogDetail';
 import { getDogById, deleteDog } from '../services/dogs';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 
 function Details() {
+  const history = useHistory();
   const [dog, setDog] = useState({});
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
@@ -24,6 +25,7 @@ function Details() {
   const handleDelete = async () => {
     try {
       await deleteDog(params.id);
+      history.push('/dogs');
     } catch (e) {
       setError('something went wrong, please try again.');
     }
