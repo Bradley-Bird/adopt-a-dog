@@ -4,7 +4,7 @@ import { createDog } from '../services/dogs';
 import DogForm from '../components/DogForm';
 
 function New() {
-  const [dog, setDog] = useState({ name: '', bio: '', age: null, breed: '', image: '' });
+  const [dog, setDog] = useState({ name: '', bio: '', age: '', breed: '', image: '' });
   const [error, setError] = useState('');
 
   const history = useHistory();
