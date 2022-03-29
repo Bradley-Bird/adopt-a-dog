@@ -15,8 +15,8 @@ function DogForm({
   };
 
   return (
-    <div>
-      <StyledFormContainer>
+    <Container>
+      <StyledForm>
         <input
           type="text"
           placeholder="Name"
@@ -48,17 +48,26 @@ function DogForm({
           onChange={(e) => updateDog('image', e.target.value)}
         />
         <button onClick={edit ? handleUpdate : createNewDog}>{edit ? 'Update' : 'Save'}</button>
-      </StyledFormContainer>
-    </div>
+      </StyledForm>
+    </Container>
   );
 }
 const BioInput = styled.textarea`
   height: 200px;
+  resize: none;
+  border-radius: 0.5em;
 `;
-const StyledFormContainer = styled.form`
+const StyledForm = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+`;
+const Container = styled.div`
+  position: relative;
+  left: 40%;
+  border: 2px black solid;
+  width: 250px;
+  padding: 25px 0;
 `;
 export default DogForm;
