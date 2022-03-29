@@ -1,10 +1,18 @@
 import React from 'react';
 
-function DogForm({ dog, name, bio, age, breed, image, setDog, createNewDog }) {
+function DogForm({
+  dog,
+  dog: { name, bio, age, breed, image },
+  setDog,
+  createNewDog,
+  edit,
+  handleUpdate,
+}) {
   const updateDog = (att, val) => {
     const newDog = { ...dog, [att]: val };
     setDog(newDog);
   };
+
   return (
     <div>
       <form>
@@ -38,7 +46,7 @@ function DogForm({ dog, name, bio, age, breed, image, setDog, createNewDog }) {
           value={image}
           onChange={(e) => updateDog('image', e.target.value)}
         />
-        <button onClick={createNewDog}>Save</button>
+        <button onClick={edit ? handleUpdate : createNewDog}>{edit ? 'Update' : 'Save'}</button>
       </form>
     </div>
   );

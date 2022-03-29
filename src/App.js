@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import New from './pages/New';
 import Details from './pages/Details';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Edit from './pages/Edit';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <Switch>
           <Route path="/dogs/new">
             <New />
+          </Route>
+          <Route path="/dogs/:id/edit">
+            <Edit />
           </Route>
           <Route path="/dogs/:id">
             <Details />

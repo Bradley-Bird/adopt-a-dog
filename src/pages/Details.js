@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import DogDetail from '../components/DogDetail';
-import { getDodById } from '../services/dogs';
-import { useParams } from 'react-router-dom';
+import { getDogById } from '../services/dogs';
+import { useParams, Link } from 'react-router-dom';
 
 function Details() {
   const [dog, setDog] = useState({});
   const params = useParams();
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getDodById(params.id);
+      const data = await getDogById(params.id);
       setDog(data);
     };
     fetchData();
@@ -17,6 +17,7 @@ function Details() {
   return (
     <div>
       <DogDetail {...{ dog }} />
+      <Link to={`${params.id}/edit`}>Edit</Link>
     </div>
   );
 }

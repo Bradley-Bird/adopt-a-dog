@@ -10,7 +10,12 @@ export async function createDog(dog) {
   return checkError(resp);
 }
 
-export async function getDodById(id) {
+export async function getDogById(id) {
   const resp = await client.from('dogs').select().match({ id }).single();
+  return checkError(resp);
+}
+
+export async function updateDog(id, dog) {
+  const resp = await client.from('dogs').update(dog).match({ id });
   return checkError(resp);
 }
