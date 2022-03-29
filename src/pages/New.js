@@ -18,9 +18,9 @@ function New() {
       setError(e.message);
     }
   };
-  error && <p>{error}</p>;
   return (
     <div>
+      {error && <p>{error}</p>}
       <DogForm {...{ dog, setDog, createNewDog }} />
     </div>
   );

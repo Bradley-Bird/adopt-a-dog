@@ -13,7 +13,7 @@ function Details() {
       try {
         const data = await getDogById(params.id);
         setDog(data);
-        setLoading(false);
+        setLoading(true);
       } catch (e) {
         setError(e.message);
       }
@@ -28,13 +28,12 @@ function Details() {
       setError('something went wrong, please try again.');
     }
   };
-  if (loading) {
-    return <p>Loading...</p>;
-  } else if (error) {
-    return <p>{error}</p>;
-  }
+
+  loading && <p>Loading...</p>;
+
   return (
     <div>
+      {error && <p>{error}</p>}
       <DogDetail {...{ dog }} />
       <Link to={`${params.id}/edit`}>
         <button>Edit</button>
