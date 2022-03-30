@@ -22,7 +22,7 @@ function App() {
             <Edit />
           </Route>
           <Route path="/dogs/:id">
-            <Details />
+            <Details currentUser={currentUser} />
           </Route>
           <Route path="/auth">
             <Auth {...{ setCurrentUser }} />

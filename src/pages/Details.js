@@ -3,7 +3,7 @@ import DogDetail from '../components/DogDetail';
 import { getDogById, deleteDog } from '../services/dogs';
 import { useParams, Link, useHistory } from 'react-router-dom';
 
-function Details() {
+function Details({ currentUser }) {
   const history = useHistory();
   const [dog, setDog] = useState({});
   const [error, setError] = useState('');
@@ -37,10 +37,14 @@ function Details() {
     <div>
       {error && <p>{error}</p>}
       <DogDetail {...{ dog }} />
-      <Link to={`${params.id}/edit`}>
-        <button>Edit</button>
-      </Link>
-      <button onClick={handleDelete}>Delete</button>
+      {currentUser && (
+        <>
+          <Link to={`${params.id}/edit`}>
+            <button>Edit</button>
+          </Link>
+          <button onClick={handleDelete}>Delete</button>
+        </>
+      )}
     </div>
   );
 }
