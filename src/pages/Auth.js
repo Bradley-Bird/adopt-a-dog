@@ -1,8 +1,13 @@
 import { useState } from 'react';
+import { signInUser } from '../services/auth';
 
-function Auth() {
+function Auth(setCurrentUser) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleSubmit = async () => {
+    const resp = await signInUser();
+  };
   return (
     <div>
       <h4>
