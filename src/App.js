@@ -16,11 +16,9 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/dogs/new">{currentUser ? <New /> : <Redirect to="/auth" />}</Route>
-          <Route path="/dogs/:id/edit">
-            <Edit />
-          </Route>
+          <Route path="/dogs/:id/edit">{currentUser ? <Edit /> : <Redirect to="/auth" />}</Route>
           <Route path="/dogs/:id">
-            {currentUser ? <Details currentUser={currentUser} /> : <Redirect to="/auth" />}
+            <Details currentUser={currentUser} />
           </Route>
           <Route path="/auth">
             <Auth {...{ setCurrentUser }} />
