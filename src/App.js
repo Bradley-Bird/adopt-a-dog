@@ -12,7 +12,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   return (
     <BrowserRouter>
-      <Nav {...setCurrentUser} />
+      <Nav currentUser={currentUser} />
       <div className="App">
         <Switch>
           <Route path="/dogs/new">
@@ -24,8 +24,8 @@ function App() {
           <Route path="/dogs/:id">
             <Details />
           </Route>
-          <Route path="/auth" {...setCurrentUser}>
-            <Auth />
+          <Route path="/auth">
+            <Auth {...{ setCurrentUser }} />
           </Route>
           <Route path="/dogs">
             <Home />
