@@ -11,6 +11,9 @@ function Nav() {
       <NavLink to="/dogs/new">
         <h4>Admin</h4>
       </NavLink>
+      <NavLink to="/auth">
+        <h4>Sign In</h4>
+      </NavLink>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import New from './pages/New';
 import Details from './pages/Details';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Edit from './pages/Edit';
+import Auth from './pages/Auth';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/dogs/:id">
             <Details />
+          </Route>
+          <Route path="/auth">
+            <Auth />
           </Route>
           <Route path="/dogs">
             <Home />

@@ -24,6 +24,7 @@ const Grid = styled.div`
   div {
     background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     display: flex;
+    overflow: wrap;
     justify-content: center;
     align-items: center;
     border: 2px black solid;
@@ -37,7 +38,6 @@ const Grid = styled.div`
       padding: 10px 0;
     }
     img {
-      position: relative;
       border-radius: 1em;
       box-shadow: 10px 10px 5px rgba(35, 43, 43, 0.5);
     }
